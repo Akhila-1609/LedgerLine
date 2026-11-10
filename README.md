@@ -22,19 +22,19 @@ It provides REST APIs to create accounts, deposit money, withdraw money, transfe
 
 
 
-\- Java 21
+- Java 21
 
-\- Spring Boot
+- Spring Boot
 
-\- Spring Data JPA
+- Spring Data JPA
 
-\- PostgreSQL
+- PostgreSQL
 
-\- Maven
+- Maven
 
-\- Spring Security
+- Spring Security
 
-\- REST APIs
+- REST APIs
 
 
 
@@ -42,25 +42,25 @@ It provides REST APIs to create accounts, deposit money, withdraw money, transfe
 
 
 
-\- Create bank accounts
+- Create bank accounts
 
-\- Deposit and withdraw money
+- Deposit and withdraw money
 
-\- Transfer funds between accounts
+- Transfer funds between accounts
 
-\- Retrieve account details and balances
+- Retrieve account details and balances
 
-\- View transaction history
+- View transaction history
 
-\- Validate transaction amounts
+- Validate transaction amounts
 
-\- Prevent duplicate transaction references
+- Prevent duplicate transaction references
 
-\- Prevent insufficient-balance transactions
+- Prevent insufficient-balance transactions
 
-\- Secure API endpoints using HTTP Basic Authentication
+- Secure API endpoints using HTTP Basic Authentication
 
-\- Use database transactions and pessimistic locking
+- Use database transactions and pessimistic locking
 
 
 
@@ -94,7 +94,7 @@ This project uses PostgreSQL.
 
 
 
-Create a database named `ledgerline\_db`.
+Create a database named `ledgerline_db`.
 
 
 
@@ -104,11 +104,11 @@ Set these environment variables in PowerShell:
 
 ```powershell
 
-$env:DB\_PASSWORD = "your\_database\_password"
+$env:DB_PASSWORD = "your_database_password"
 
-$env:APP\_USERNAME = "your\_username"
+$env:APP_USERNAME = "your_username"
 
-$env:APP\_PASSWORD = "your\_application\_password"
+$env:APP_PASSWORD = "your_application_password"
 
 ```
 
@@ -124,7 +124,7 @@ Start the application:
 
 ```powershell
 
-.\\mvnw.cmd spring-boot:run
+.\mvnw.cmd spring-boot:run
 
 ```
 
@@ -152,7 +152,7 @@ Run automated tests:
 
 ```powershell
 
-.\\mvnw.cmd clean test
+.\mvnw.cmd clean test
 
 ```
 
@@ -164,7 +164,7 @@ Build the application:
 
 ```powershell
 
-.\\mvnw.cmd clean package
+.\mvnw.cmd clean package
 
 ```
 
@@ -187,6 +187,8 @@ Mekala Akhila
 
 
 Backend Engineering Project
+
+
 
 
 
