@@ -112,4 +112,38 @@ class AccountServiceTest {
 
         verify(transactionRepository, never()).save(any(Transaction.class));
     }
+
+    @Test
+    void transferShouldUpdateBothAccountBalances() {
+
+        Account receiver = new Account("ACC1002", "Receiver");
+        receiver.setBalance(new BigDecimal("300.00"));
+
+        when(accountRepository.findByAccountNumberForUpdate("ACC1001"))
+                .thenReturn(Optional.of(account));
+
+        when(accountRepository.findByAccountNumberForUpdate("ACC1002"))
+                .thenReturn(Optional.of(receiver));
+
+        when(transactionRepository.findByReferenceId("TRF1001"))
+                .thenReturn(Optional.empty());
+
+        when(transactionRepository.save(any(Transaction.class)))
+                .thenAnswer(invocation -> invocation.getArgument(0));
+
+        Transaction result = accountService.transfer(
+                "ACC1001",
+                "ACC1002",
+                new BigDecimal("100.00"),
+                "TRF1001"
+        );
+
+        assertEquals(new BigDecimal("400.00"), account.getBalance());
+        assertEquals(new BigDecimal("400.00"), receiver.getBalance());
+        assertEquals(Transaction.TransactionType.TRANSFER, result.getType());
+        assertEquals(Transaction.TransactionStatus.COMPLETED, result.getStatus());
+        assertEquals(new BigDecimal("100.00"), result.getAmount());
+
+        verify(accountRepository, times(2)).save(any(Account.class));
+    }
 }
